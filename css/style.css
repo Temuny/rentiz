@@ -22,6 +22,11 @@ ul {
 body {
   font-family: "Work Sans", sans-serif;
   background-color: var(--bg-color);
+  position: relative;
+  color: #fff;
+}
+body._lock {
+  overflow: hidden;
 }
 
 [class*=__container] {
@@ -30,15 +35,24 @@ body {
   padding: 0 15px;
 }
 
+/*--------------------------------------------------------------------------*/
+/*-------------------------------General-------------------------------------------*/
+.text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/*-------------------------------/General-------------------------------------------*/
 /*----------------------------------Header----------------------------------------*/
 .header {
-  padding: 40px 0;
+  padding: clamp(0.625rem, 0.08rem + 2.73vw, 2.5rem);
 }
 .header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: clamp(0.313rem, 0.04rem + 1.36vw, 1.25rem);
 }
 .header__logo {
   max-width: 200px;
@@ -46,7 +60,7 @@ body {
 .header__navigation {
   display: flex;
   align-items: center;
-  gap: clamp(1.25rem, -2.799rem + 8.44vw, 4.688rem);
+  gap: clamp(1.25rem, 0.25rem + 5vw, 4.688rem);
 }
 .header__buttons {
   display: flex;
@@ -59,6 +73,11 @@ body {
   background-color: inherit;
   transition: background-color 0.3s;
   cursor: pointer;
+}
+@media (max-width: 576px) {
+  .header__btn {
+    padding: 7px 15px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -121,7 +140,7 @@ body {
 .menu__body {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: clamp(1.25rem, 0.886rem + 1.82vw, 2.5rem);
 }
 @media (max-width: 992px) {
   .menu__body {
@@ -170,9 +189,41 @@ body {
     background-color: var(--accent-color);
   }
 }
+@media (max-width: 425px) {
+  .login {
+    display: none;
+  }
+}
 
 @media (any-hover: hover) {
   .register:hover {
     background-color: var(--accent-color);
   }
 }
+@media (max-width: 445px) {
+  .register {
+    background-color: var(--accent-color);
+  }
+}
+
+/*---------------------------------/Header-----------------------------------------*/
+/*-----------------------------------Hero---------------------------------------*/
+.hero__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hero__content {
+  flex: 0 0 48.275862069%;
+}
+.hero__title {
+  font-weight: 600;
+  font-size: clamp(1.25rem, 0.4rem + 4.25vw, 4.25rem);
+  line-height: 1.26;
+  text-transform: capitalize;
+}
+.hero__img {
+  flex: 0 0 48.275862069%;
+}
+
+/*-----------------------------------/Hero---------------------------------------*/
