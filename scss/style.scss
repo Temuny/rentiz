@@ -24,7 +24,7 @@ body {
   font-family: "Work Sans", sans-serif;
   background-color: var(--bg-color);
   position: relative;
-  color:#fff;
+  color: #fff;
 
   &._lock {
     overflow: hidden;
@@ -52,7 +52,7 @@ body {
 
 /*----------------------------------Header----------------------------------------*/
 .header {
-  padding: clamp(0.625rem, 0.08rem + 2.73vw, 2.5rem);
+  padding: clamp(0.625rem, 0.08rem + 2.73vw, 2.5rem) 0px;
 
   // .header__container
   &__container {
@@ -248,40 +248,180 @@ body {
 /*---------------------------------/Header-----------------------------------------*/
 
 /*-----------------------------------Hero---------------------------------------*/
-.page {
-}
+.page {}
+
 .hero {
-		// .hero__container
-		&__container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-		}
-		// .hero__content
-		&__content {
-      flex: 0 0 calc(700 / 1450 * 100%);
-		}
-		// .hero__title
-		&__title {
-      font-weight: 600;
-      font-size: clamp(1.25rem, 0.4rem + 4.25vw, 4.25rem);
-      line-height: 1.26;
-      text-transform: capitalize;
-		}
-		// .hero__text
-		&__text {
-		}
-		// .hero__filter
-		&__filter {
-		}
-		// .hero__img
-		&__img {
-      flex: 0 0 calc(700 / 1450 * 100%);
-		}
-}
-.text {
-}
-.filter {
+  margin-top: clamp(1.25rem, 0.614rem + 3.18vw, 3.438rem);
+
+  // .hero__container
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    @media (max-width: 992px) {
+      flex-direction: column;
+    }
+  }
+
+  // .hero__content
+  &__content {
+    flex: 0 0 calc(700 / 1420 * 100%);
+    padding-bottom: 160px;
+  }
+
+  // .hero__title
+  &__title {
+    font-weight: 600;
+    font-size: clamp(1.875rem, 1.184rem + 3.45vw, 4.25rem);
+    line-height: 1.26;
+    text-transform: capitalize;
+  }
+
+  // .hero__text
+  &__text {
+    margin-top: 18px;
+  }
+
+  // .hero__filter
+  &__filter {
+    height: 100px;
+    width: 860px;
+    background-color: #fff;
+    margin-top: 60px;
+    position: absolute;
+    
+    @media (max-width: 992px) {
+      width: 100%;
+      position: static;
+    }
+  }
+
+  // .hero__img
+  &__img {
+    flex: 0 0 calc(700 / 1420 * 100%);
+  }
 }
 
 /*-----------------------------------/Hero---------------------------------------*/
+
+/*-----------------------------------Filter---------------------------------------*/
+
+.filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 164px;
+  color: #000;
+
+  // .filter__block
+  &__block {
+    &:nth-child(2) {
+      border-right: 1px solid rgba(232, 232, 232, 1);
+      border-left: 1px solid rgba(232, 232, 232, 1);
+    }
+  }
+
+  // .filter__btn
+  &__btn {
+    padding: 5px;
+
+    button {
+      background-color: var(--accent-color);
+      height: 100%;
+      width: 100%;
+      border: none;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px;
+      text-transform: capitalize;
+      color: #fff;
+      cursor: pointer;
+      &:active{
+        background-color:#121B25;
+      }
+    }
+  }
+}
+
+.block-filter {
+  position: relative;
+
+  // .block-filter__button
+  &__button {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    padding-left: 40px;
+  }
+
+  // .block-filter__header
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  // .block-filter__type
+  &__type {
+    padding-right: 2px;
+    font-size: 16px;
+    color: #858585;
+  }
+
+  // .block-filter__icon
+  &__icon {
+    height: 10px;
+    width: 7px;
+    background: url('../img/icons/Vector.svg') center bottom no-repeat;
+    transition: transform .2s;
+    cursor: pointer;
+
+    &._active{
+      transform: rotate(180deg);
+    }
+  }
+
+  // visibility
+  &__value {
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: var(--bg-color);
+  }
+
+  // .block-filter__dropdown
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all;
+    &._active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+      transform: translateY(5px);
+    }
+  }
+
+  // .block-filter__item
+  &__item {
+    padding: 10px;
+    transition: background-color 0.3s;
+    text-transform: capitalize;
+    cursor: pointer;
+    @media (any-hover: hover) {
+      &:hover{
+        background-color:#858585;
+      }
+    }
+  }
+}
+
+/*-----------------------------------/Filter---------------------------------------*/

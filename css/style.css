@@ -46,7 +46,7 @@ body._lock {
 /*-------------------------------/General-------------------------------------------*/
 /*----------------------------------Header----------------------------------------*/
 .header {
-  padding: clamp(0.625rem, 0.08rem + 2.73vw, 2.5rem);
+  padding: clamp(0.625rem, 0.08rem + 2.73vw, 2.5rem) 0px;
 }
 .header__container {
   display: flex;
@@ -208,22 +208,144 @@ body._lock {
 
 /*---------------------------------/Header-----------------------------------------*/
 /*-----------------------------------Hero---------------------------------------*/
+.hero {
+  margin-top: clamp(1.25rem, 0.614rem + 3.18vw, 3.438rem);
+}
 .hero__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+@media (max-width: 992px) {
+  .hero__container {
+    flex-direction: column;
+  }
+}
 .hero__content {
-  flex: 0 0 48.275862069%;
+  flex: 0 0 49.2957746479%;
+  padding-bottom: 160px;
 }
 .hero__title {
   font-weight: 600;
-  font-size: clamp(1.25rem, 0.4rem + 4.25vw, 4.25rem);
+  font-size: clamp(1.875rem, 1.184rem + 3.45vw, 4.25rem);
   line-height: 1.26;
   text-transform: capitalize;
 }
+.hero__text {
+  margin-top: 18px;
+}
+.hero__filter {
+  height: 100px;
+  width: 860px;
+  background-color: #fff;
+  margin-top: 60px;
+  position: absolute;
+}
+@media (max-width: 992px) {
+  .hero__filter {
+    width: 100%;
+    position: static;
+  }
+}
 .hero__img {
-  flex: 0 0 48.275862069%;
+  flex: 0 0 49.2957746479%;
 }
 
 /*-----------------------------------/Hero---------------------------------------*/
+/*-----------------------------------Filter---------------------------------------*/
+.filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 164px;
+  color: #000;
+}
+.filter__block:nth-child(2) {
+  border-right: 1px solid rgb(232, 232, 232);
+  border-left: 1px solid rgb(232, 232, 232);
+}
+.filter__btn {
+  padding: 5px;
+}
+.filter__btn button {
+  background-color: var(--accent-color);
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: capitalize;
+  color: #fff;
+  cursor: pointer;
+}
+.filter__btn button:active {
+  background-color: #121B25;
+}
+
+.block-filter {
+  position: relative;
+}
+.block-filter__button {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+  padding-left: 40px;
+}
+.block-filter__header {
+  display: flex;
+  align-items: center;
+}
+.block-filter__type {
+  padding-right: 2px;
+  font-size: 16px;
+  color: #858585;
+}
+.block-filter__icon {
+  height: 10px;
+  width: 7px;
+  background: url("../img/icons/Vector.svg") center bottom no-repeat;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+.block-filter__icon._active {
+  transform: rotate(180deg);
+}
+.block-filter__value {
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: capitalize;
+  color: var(--bg-color);
+}
+.block-filter__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all;
+}
+.block-filter__dropdown._active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateY(5px);
+}
+.block-filter__item {
+  padding: 10px;
+  transition: background-color 0.3s;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+@media (any-hover: hover) {
+  .block-filter__item:hover {
+    background-color: #858585;
+  }
+}
+
+/*-----------------------------------/Filter---------------------------------------*/
