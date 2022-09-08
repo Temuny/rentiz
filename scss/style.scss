@@ -40,6 +40,15 @@ body {
 /*--------------------------------------------------------------------------*/
 
 /*-------------------------------General-------------------------------------------*/
+
+.title {
+  font-weight: 600;
+    font-size: clamp(1.875rem, 1.548rem + 1.64vw, 3rem);
+    line-height: 1.26;
+    text-transform: capitalize;
+    color: var(--text-color);
+}
+
 .text {
   font-weight: 400;
   font-size: 18px;
@@ -110,6 +119,7 @@ body {
     padding: 20px 0;
     background-color: var(--accent-color);
     transition: left .2s;
+    z-index: 5;
 
     &._active {
       left: 0;
@@ -251,14 +261,28 @@ body {
 .page {}
 
 .hero {
-  margin-top: clamp(1.25rem, 0.614rem + 3.18vw, 3.438rem);
+  margin-top: clamp(1.25rem, 0.25rem + 5vw, 4.688rem);
+  position: relative;
+  padding-bottom: clamp(1.25rem, -0.023rem + 6.36vw, 5.625rem);
+
+  .hero-deco {
+    position: absolute;
+    right: 0;
+    bottom: -152px;
+    z-index: -1;
+
+    @media (max-width: 681px) {
+      height: 300px;
+      bottom: -106px
+    }
+  }
 
   // .hero__container
   &__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     @media (max-width: 992px) {
       flex-direction: column;
     }
@@ -267,7 +291,7 @@ body {
   // .hero__content
   &__content {
     flex: 0 0 calc(700 / 1420 * 100%);
-    padding-bottom: 160px;
+    padding-bottom: clamp(4.375rem, 2.739rem + 8.18vw, 10rem);
   }
 
   // .hero__title
@@ -290,7 +314,7 @@ body {
     background-color: #fff;
     margin-top: 60px;
     position: absolute;
-    
+
     @media (max-width: 992px) {
       width: 100%;
       position: static;
@@ -312,6 +336,17 @@ body {
   grid-template-columns: 1fr 1fr 1fr 164px;
   color: #000;
 
+  @media (max-width: 571px) {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 5px;
+    height: auto;
+  }
+
+  @media (max-width: 475px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
   // .filter__block
   &__block {
     &:nth-child(2) {
@@ -323,6 +358,7 @@ body {
   // .filter__btn
   &__btn {
     padding: 5px;
+
 
     button {
       background-color: var(--accent-color);
@@ -336,11 +372,17 @@ body {
       text-transform: capitalize;
       color: #fff;
       cursor: pointer;
-      &:active{
-        background-color:#121B25;
+
+      &:active {
+        background-color: #121B25;
       }
     }
+
+    @media (max-width:571px) and (min-width: 475px) {
+      grid-column: 1/4;
+    }
   }
+
 }
 
 .block-filter {
@@ -352,7 +394,7 @@ body {
     justify-content: center;
     height: 100%;
     flex-direction: column;
-    padding-left: 40px;
+    padding-left: clamp(1.25rem, 0.886rem + 1.82vw, 2.5rem);
   }
 
   // .block-filter__header
@@ -376,7 +418,7 @@ body {
     transition: transform .2s;
     cursor: pointer;
 
-    &._active{
+    &._active {
       transform: rotate(180deg);
     }
   }
@@ -402,6 +444,9 @@ body {
     visibility: hidden;
     pointer-events: none;
     transition: all;
+    z-index: 3;
+    box-shadow: 0 0 5px 1px #000;
+
     &._active {
       opacity: 1;
       visibility: visible;
@@ -416,12 +461,48 @@ body {
     transition: background-color 0.3s;
     text-transform: capitalize;
     cursor: pointer;
+
     @media (any-hover: hover) {
-      &:hover{
-        background-color:#858585;
+      &:hover {
+        background-color: #858585;
       }
     }
   }
 }
 
 /*-----------------------------------/Filter---------------------------------------*/
+
+/*-------------------------------------Featured-------------------------------------*/
+.featured {
+  padding-top: clamp(1.25rem, -0.023rem + 6.36vw, 5.625rem);
+
+  // .featured__container
+  &__container {}
+
+  // .featured__title
+  &__title {
+    
+  }
+
+  // .featured__box
+  &__box {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
+    overflow: auto;
+
+  }
+
+  // .featured__item
+  &__item {
+    flex: 0 0 auto;
+  }
+
+  // .featured__img
+  &__img {}
+}
+
+
+/*-------------------------------------/Featured-------------------------------------*/

@@ -37,6 +37,14 @@ body._lock {
 
 /*--------------------------------------------------------------------------*/
 /*-------------------------------General-------------------------------------------*/
+.title {
+  font-weight: 600;
+  font-size: clamp(1.875rem, 1.548rem + 1.64vw, 3rem);
+  line-height: 1.26;
+  text-transform: capitalize;
+  color: var(--text-color);
+}
+
 .text {
   font-weight: 400;
   font-size: 18px;
@@ -92,6 +100,7 @@ body._lock {
     padding: 20px 0;
     background-color: var(--accent-color);
     transition: left 0.2s;
+    z-index: 5;
   }
   .menu._active {
     left: 0;
@@ -209,7 +218,21 @@ body._lock {
 /*---------------------------------/Header-----------------------------------------*/
 /*-----------------------------------Hero---------------------------------------*/
 .hero {
-  margin-top: clamp(1.25rem, 0.614rem + 3.18vw, 3.438rem);
+  margin-top: clamp(1.25rem, 0.25rem + 5vw, 4.688rem);
+  position: relative;
+  padding-bottom: clamp(1.25rem, -0.023rem + 6.36vw, 5.625rem);
+}
+.hero .hero-deco {
+  position: absolute;
+  right: 0;
+  bottom: -152px;
+  z-index: -1;
+}
+@media (max-width: 681px) {
+  .hero .hero-deco {
+    height: 300px;
+    bottom: -106px;
+  }
 }
 .hero__container {
   display: flex;
@@ -223,7 +246,7 @@ body._lock {
 }
 .hero__content {
   flex: 0 0 49.2957746479%;
-  padding-bottom: 160px;
+  padding-bottom: clamp(4.375rem, 2.739rem + 8.18vw, 10rem);
 }
 .hero__title {
   font-weight: 600;
@@ -258,6 +281,19 @@ body._lock {
   grid-template-columns: 1fr 1fr 1fr 164px;
   color: #000;
 }
+@media (max-width: 571px) {
+  .filter {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 5px;
+    height: auto;
+  }
+}
+@media (max-width: 475px) {
+  .filter {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
 .filter__block:nth-child(2) {
   border-right: 1px solid rgb(232, 232, 232);
   border-left: 1px solid rgb(232, 232, 232);
@@ -281,6 +317,11 @@ body._lock {
 .filter__btn button:active {
   background-color: #121B25;
 }
+@media (max-width: 571px) and (min-width: 475px) {
+  .filter__btn {
+    grid-column: 1/4;
+  }
+}
 
 .block-filter {
   position: relative;
@@ -290,7 +331,7 @@ body._lock {
   justify-content: center;
   height: 100%;
   flex-direction: column;
-  padding-left: 40px;
+  padding-left: clamp(1.25rem, 0.886rem + 1.82vw, 2.5rem);
 }
 .block-filter__header {
   display: flex;
@@ -329,6 +370,8 @@ body._lock {
   visibility: hidden;
   pointer-events: none;
   transition: all;
+  z-index: 3;
+  box-shadow: 0 0 5px 1px #000;
 }
 .block-filter__dropdown._active {
   opacity: 1;
@@ -349,3 +392,19 @@ body._lock {
 }
 
 /*-----------------------------------/Filter---------------------------------------*/
+/*-------------------------------------Featured-------------------------------------*/
+.featured {
+  padding-top: clamp(1.25rem, -0.023rem + 6.36vw, 5.625rem);
+}
+.featured__box {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  overflow: auto;
+}
+.featured__item {
+  flex: 0 0 auto;
+}
+/*-------------------------------------/Featured-------------------------------------*/
