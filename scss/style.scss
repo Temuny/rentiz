@@ -475,15 +475,6 @@ body {
 /*-------------------------------------Featured-------------------------------------*/
 .featured {
   padding-top: clamp(1.25rem, -0.023rem + 6.36vw, 5.625rem);
-
-  // .featured__container
-  &__container {}
-
-  // .featured__title
-  &__title {
-    
-  }
-
   // .featured__box
   &__box {
     margin-top: 40px;
@@ -492,17 +483,42 @@ body {
     gap: 30px;
     align-items: center;
     overflow: auto;
-
   }
 
   // .featured__item
   &__item {
     flex: 0 0 auto;
   }
-
-  // .featured__img
-  &__img {}
 }
 
 
 /*-------------------------------------/Featured-------------------------------------*/
+
+/*---------------------------------------Popular-----------------------------------*/
+.popular {
+  background:  url(../img/icons/background-slider.png) center center/cover no-repeat;
+  margin-top: clamp(1.875rem, -0.852rem + 13.64vw, 11.25rem);
+  // .popular__container
+  &__container {
+  }
+  // .popular__title
+  &__title {
+  }
+  // .popular__slider
+  &__slider {
+  }
+}
+.swiper {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+.slider-buttons {
+}
+.swiper-button-prev {
+}
+.swiper-button-next {
+}
+
+/*---------------------------------------/Popular-----------------------------------*/
