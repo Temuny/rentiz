@@ -26,7 +26,8 @@ items.forEach(item => {
 
 /*----------------------------------Swiper----------------------------------------*/
 
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.popular-slider', {
+   spaceBetween: 20,
    // Navigation arrows
    navigation: {
       nextEl: '.swiper-button-next',

@@ -42,13 +42,13 @@ body._lock {
   font-size: clamp(1.875rem, 1.548rem + 1.64vw, 3rem);
   line-height: 1.26;
   text-transform: capitalize;
-  color: var(--text-color);
 }
 
 .text {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.7;
+  color: var(--text-color);
 }
 
 /*-------------------------------/General-------------------------------------------*/
@@ -395,6 +395,7 @@ body._lock {
 /*-------------------------------------Featured-------------------------------------*/
 .featured {
   padding-top: clamp(1.25rem, -0.023rem + 6.36vw, 5.625rem);
+  padding-bottom: clamp(1.25rem, -0.023rem + 6.36vw, 5.625rem);
 }
 .featured__box {
   margin-top: 40px;
@@ -411,7 +412,37 @@ body._lock {
 /*-------------------------------------/Featured-------------------------------------*/
 /*---------------------------------------Popular-----------------------------------*/
 .popular {
-  background: url(../img/icons/background-slider.png) center center/cover no-repeat;
-  margin-top: clamp(1.875rem, -0.852rem + 13.64vw, 11.25rem);
+  background: #1A242F url("../img/icons/background-slider.png") center center/cover no-repeat;
+  padding: 160px 0;
 }
+.popular__slider {
+  margin-top: 40px;
+}
+
+.popular-slide {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.popular-slide__title {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.26;
+}
+.popular-slide__labels {
+  display: flex;
+  gap: 20px;
+}
+.popular-slide__label {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
 /*---------------------------------------/Popular-----------------------------------*/
