@@ -28,6 +28,8 @@ items.forEach(item => {
 
 const swiper = new Swiper('.popular-slider', {
    spaceBetween: 20,
+   slidesPerView: 3,
+   loop: true,
    // Navigation arrows
    navigation: {
       nextEl: '.swiper-button-next',
